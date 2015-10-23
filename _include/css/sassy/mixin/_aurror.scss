@@ -1,0 +1,149 @@
+// ----------------------
+// Monochromatic gradient
+
+@mixin aurrorItMonochromatic( $direction, $color-start, $type ) {
+	
+	@if $type == darker {
+		$color-stop : ( $color-start / 4 )*2;
+
+		background-image: -webkit-linear-gradient( $direction, $color-start 0%, $color-stop 100%);
+		background-image: -ms-linear-gradient( $direction, $color-start 0%, $color-stop 100%);
+	}
+
+	@if $type == lighter {
+		$color-stop : ( $color-start / 4 )*5;
+
+		background-image: -webkit-linear-gradient( $direction, $color-start 0%, $color-stop 100%);
+		background-image: -ms-linear-gradient( $direction, $color-start 0%, $color-stop 100%);
+	}
+
+}
+
+// Monochromatic gradient
+// ----------------------
+
+
+
+// ----------------------
+// Complementary gradient
+
+
+@mixin aurrorItComplementary( $direction, $h-start, $type, $a-start: 1, $a-end: 1 ) {
+	
+	$modifier : 180;
+
+	@if $type == pastel {
+		$s-start : 73%;
+		$l-start : 76%;
+		background-image: calcGrad( $direction, $h-start, $s-start, $l-start, $modifier, $a-start, $a-end );
+	}
+
+	@if $type == gothic {
+		$s-start : 41%;
+		$l-start : 21%;
+		background-image: calcGrad( $direction, $h-start, $s-start, $l-start, $modifier, $a-start, $a-end );
+	}
+
+	@if $type == pale {
+		$s-start : 32%;
+		$l-start : 81%;
+		background-image: calcGrad( $direction, $h-start, $s-start, $l-start, $modifier, $a-start, $a-end );
+	}
+
+}
+
+// End complementary gradient
+// --------------------------
+
+
+
+// ------------------
+// Analogous gradient
+
+@mixin aurrorItAnalogous( $direction, $h-start, $h-direction, $a-start: 1, $a-end: 1 ) {
+
+	$s-start : 73%;
+	$l-start : 76%;
+
+	@if $h-direction == left {
+		$modifier : 90;
+		background-image: calcGrad( $direction, $h-start, $s-start, $l-start, $modifier, $a-start, $a-end );
+	}
+
+	@if $h-direction == right {
+		$modifier : -90;
+		background-image: calcGrad( $direction, $h-start, $s-start, $l-start, $modifier, $a-start, $a-end );
+	}
+
+}
+
+// End Analogous gradient
+// ----------------------
+
+
+// --------------
+// Triad gradient
+
+@mixin aurrorItTriad( $direction, $h-start, $s-start, $l-start, $h-direction, $a-start: 1, $a-stop-1: 1, $a-stop-2: 1  ) {
+
+	@if $h-direction == left {
+		$modifier : 120;
+		background-image : calcGradTriad( $direction, $h-start, $s-start, $l-start, $modifier, $a-start, $a-stop-1, $a-stop-2  );
+	}
+
+	@if $h-direction == right {
+		$modifier : -120;
+		background-image : calcGradTriad( $direction, $h-start, $s-start, $l-start, $modifier, $a-start, $a-stop-1, $a-stop-2  );
+	}
+
+}
+
+// End Triad gradient
+// --------------
+
+
+// ---
+// 
+@function funcMultiChromatic() {
+	@each $direction in $directions {
+	}
+}
+@mixin aurrotItMultiChromatic( $h-start, $s-start, $l-start, $directions... ) {
+	background-image: -webkit-linear-gradient( multi( $h-start, $s-start, $l-start, $directions... ) );
+}
+
+//
+// ---
+
+
+
+
+// Function for gradient
+// ---------------------
+
+@function calcGrad( $direction, $h-start, $s-start, $l-start, $modifier, $a-start, $a-end ){
+
+	$h-end : $h-start + $modifier;
+	$hsla-start : hsla( $h-start, $s-start, $l-start, $a-start );
+	$hsla-end : hsla( $h-end, $s-start, $l-start, $a-end );
+	@return -webkit-linear-gradient( $direction, $hsla-start 0%, $hsla-end 100%);
+}
+
+// ---------------------
+// Function for gradient
+
+
+// Function for gradient
+// ---------------------
+
+@function calcGradTriad( $direction, $h-start, $s-start, $l-start, $modifier, $a-start, $a-stop-1, $a-stop-2  ) {
+	$h-stop-1 : $h-start + $modifier;
+	$h-stop-2 : $h-stop-1 + $modifier;
+	$hsla-start : hsla( $h-start, $s-start, $l-start, $a-start );
+	$hsla-stop-1 : hsla( $h-stop-1, $s-start, $l-start, $a-stop-1 );
+	$hsla-stop-2 : hsla( $h-stop-2, $s-start, $l-start, $a-stop-2 );
+	@return -webkit-linear-gradient( $direction, $hsla-start 0%, $hsla-stop-1 50%, $hsla-stop-2  100%)
+}
+
+// ---------------------
+// Function for gradient

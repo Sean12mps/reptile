@@ -1,0 +1,23 @@
+// -------------------
+// font list
+$font-stack:
+	(group: brandon, id: light, font: ('Brandon Grot W01 Light', san-serif ), weight: 200, style: normal),
+	(group: brandon, id: light-italic, font: ('Brandon Grot W01 Light', san-serif ), weight: 200, style: italic);
+
+@mixin font($group, $id:regular){
+  @each $font in $font-stack{
+    @if($group == map-get($font, group) and $id == map-get($font, id)){
+      font-family: map-get($font, font);
+      font-weight: map-get($font, weight);
+      font-style: map-get($font, style);
+    }
+  }
+}
+
+//font families
+$heading-font : somethin;
+$heading-font-secondary : somethin;
+$heading-font-tertiary : somethin;
+
+$heading-weight : somethin;
+

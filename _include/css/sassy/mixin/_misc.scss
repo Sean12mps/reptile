@@ -1,0 +1,40 @@
+// --------------------
+// placeholder for clearfix 
+%clearfix {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// ---------------------
+// convert px to rem with px fallback
+@mixin remSize( $property, $size ) {
+	#{ $property } : $size;
+	#{ $property } : calculateRem($size);
+}
+
+// ----------------------
+// center element, requires parent element position to be set to relative
+%absolute-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+// ----------------------
+// vertical align elements
+%vertical-align {
+  &:before {
+    content: '';
+    vertical-align: middle;
+    display: inline-block;
+    height: 100%; 
+    width: .1px;
+  }
+}

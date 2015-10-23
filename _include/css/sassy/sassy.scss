@@ -1,0 +1,96 @@
+/*
+Theme Name: Mercurial
+Theme URI: https://mercurial-theme.mrcl.xyz
+Author: Nikko Khresna & Sean Michael
+Author URI: https://mrcl.xyz
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: blog, black, white, dynamic
+Text Domain: mercurial
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+
+/*
+*    ||\        /||
+*    || |      | ||
+*    || ||    || ||
+*    || ||    || ||
+*    ||  \\  //  ||
+*    ||   \\//   ||
+*
+*       MERCURIAL
+*
+*/
+
+@import "variables/colors";
+@import "variables/typography-variables";
+
+@import "mixin/responsive";
+@import "mixin/typography";
+@import "mixin/effects";
+@import "mixin/aurror";
+@import "mixin/vendor-prefix";
+@import "mixin/misc";
+@import "mixin/button";
+
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+
+// reset
+html {
+	margin: 0;
+}
+
+// colors
+// primary colors
+$prim-one : #3de795;
+$prim-two : #00897b;
+$prim-three : #006064;
+
+// accent colors
+$acc-one : #40c4ff;
+$acc-two : #1de9b6;
+$acc-three : #64ffda;
+
+// other colors
+$black : #000;
+$white : #fff;
+
+// typography
+$font-one : 'Source Sans Pro';
+$font-two : 'Arial';
+
+h1, h2, h3, h4, h5, h6 ,p ,a {
+	opacity: 0.87;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: $font-one;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+h1 {
+	@include remSize( font-size, 36px );
+}
+h2 {
+	@include remSize( font-size, 30px );
+}
+h3 {
+	@include remSize( font-size, 24px );
+}
+h4 {
+	@include remSize( font-size, 18px );
+}
+h5 {
+	@include remSize( font-size, 12px );
+}
+h6 {
+	@include remSize( font-size, 10px );
+}
+p {
+	font-family: $font-two;
+	@include remSize( font-size, 16px );
+}

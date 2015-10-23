@@ -1,0 +1,9 @@
+// -----------------------
+// add .img-full to your single image element to make it full width
+// .img-full .vc_single_image-wrapper {
+%full-img {	
+	width: 100%;
+	img {
+		width: 100%;
+	}
+}

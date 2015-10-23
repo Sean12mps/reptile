@@ -1,0 +1,49 @@
+// ----------------
+// color list
+$color-stack:
+	(group: orange, id: normal, color: #e67835),
+	(group: orange, id: pale, color: #f8a878),
+	(group: orange, id: dark, color: #ad490c),
+	(group: blue, id: normal, color: #426682);
+	
+@function color($group, $shade:normal, $transparency:1){
+  @each $color in $color-stack{
+    $c-group: map-get($color, group);
+    $c-shade: map-get($color, id);
+    @if($group == map-get($color, group) and $shade == map-get($color, id)){
+      @return rgba(map-get($color, color), $transparency);
+    }
+  }
+}
+
+// socials
+$twitter : rgb(0, 172, 237);
+$facebook : rgb(59, 89, 152);
+$googleplus : rgb(221, 75, 57);
+$pinterest : rgb(203, 32, 39);
+$linkedin : rgb(0, 123, 182);
+$youtube : rgb(187, 0, 0);
+$vimeo : rgb(170, 212, 80);
+$tumblr : rgb(50, 80, 109);
+$instagram : rgb(81, 127, 164);
+$flickr : rgb(255, 0, 132);
+$dribble : rgb(234, 76, 137);
+$quora : rgb(168, 36, 0);
+$foursquare : rgb(0, 114, 177);
+$wordpress : rgb(33, 117, 155);
+$stumbleupon : rgb(235, 72, 35);
+$yahoo :	rgb(123, 0, 153);
+$blogger : rgb(251, 143, 61);
+$soundcloud : rgb(255, 58, 0);
+
+// brands
+$adidas : rgb( 43, 43, 40 );
+$amazon : rgb( 255, 153, 0 );
+$android : rgb( 164, 198, 57 );
+$apple : rgb( 153, 153, 153 );
+$bing : rgb( 255, 185, 0 );
+$cocacola : rgb( 244, 0, 0 );
+$domino : rgb( 0, 100, 145 );
+$drupal : rgb( 12, 118, 171 );
+$starbuck : rgb( 0, 112, 74 );
+$xbox : rgb( 16, 124, 16 );

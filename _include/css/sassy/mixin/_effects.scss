@@ -1,0 +1,51 @@
+// ----------------------
+// transition mixer
+
+@mixin transition( $args... ) {
+	-webkit-transition: $args;
+	-moz-transition: $args;
+	-ms-transition: $args;
+	-o-transition: $args;
+	transition: $args;
+}
+
+// box-shadow mixin
+@mixin boxShadow( $top, $left, $blur, $color, $inset: false ) {
+	@if $inset {
+		-webkit-box-shadow:inset $top $left $blur $color;
+		-moz-box-shadow:inset $top $left $blur $color;
+		box-shadow:inset $top $left $blur $color;
+	} @else {
+		-webkit-box-shadow: $top $left $blur $color;
+		-moz-box-shadow: $top $left $blur $color;
+		box-shadow: $top $left $blur $color;
+	}
+}
+
+// ----------------------
+// animation mixin
+@mixin keyframes( $animation-name ) {
+	@-webkit-keyframes $animation-name {
+		@content;
+	}
+	@-moz-keyframes $animation-name {
+		@content;
+	}  
+	@-ms-keyframes $animation-name {
+		@content;
+	}
+	@-o-keyframes $animation-name {
+		@content;
+	}  
+	@keyframes $animation-name {
+		@content;
+	}
+}
+
+@mixin animation( $str ) {
+	-webkit-animation: #{ $str };
+	-moz-animation: #{ $str };
+	-ms-animation: #{ $str };
+	-o-animation: #{ $str };
+	animation: #{ $str };
+}

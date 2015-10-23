@@ -1,0 +1,40 @@
+// -------------------
+// base size : 12px, from px to rem
+
+@function calculateRem($size) {
+	$remSize: $size / 10px;
+	@return $remSize * 1rem;
+}
+
+@mixin fontSize($size) {
+	font-size: $size;
+	font-size: calculateRem($size);
+}
+
+// ----------------------
+// modify color & background of highlighted text
+
+@mixin highlightText( $color, $background ) {
+	::-moz-selection { 
+	    color: $color;
+	    background: $background;
+	}
+	::selection {
+	    color: $color;
+	    background: $background;
+	}
+}
+
+// -------------------
+// headings template
+// use @extend to use this
+%heading {
+	font: {
+			family: $heading-font;
+			weight: $heading-weight;
+		}
+	&:hover {
+		content: '';
+		position: absolute;
+	}
+}
