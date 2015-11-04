@@ -50,7 +50,7 @@ add_action( 'admin_menu', 'remove_redux_menu',12 );
 
 // 	load all required scripts
 add_action( 'wp_enqueue_scripts', 'load_up' );
-
+ 
 
 
 
